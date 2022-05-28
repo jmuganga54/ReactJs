@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+//react components, App component, defined in PascalCase
+function App(){
+  const title = 'React'
+  return(
+    //app component return code that resemble HTML
+    <div>
+      <h1>Hello World</h1>
     </div>
-  );
+  )
 }
+
+/**
+ * Variable defined outside and within a component.
+ * As a rule of thumb: If a variable does not need
+ * anything from within the function component's body (e.g parameter)
+ * the define it outside the component which avoids redefining it on every 
+ * function call
+ */
+
+
+
 
 export default App;
