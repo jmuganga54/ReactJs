@@ -1,71 +1,136 @@
-# Getting Started with Create React App
+## Topic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Keywords && Notes
+### Meet the React Components
+> Every React application is built on the foundation of React Component. First component which is located in the `src/App.js` file
+```
+import * as React from 'react';
 
-## Available Scripts
+const title = 'React';
 
-In the project directory, you can run:
+function App() {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  );
+}
 
-### `npm start`
+export default App;
+```
+> Before we dive deeper into each topic
+⋅⋅* First, this React component, called the App Component.
+⋅⋅* Second, the App component doesn't receive any parameters in its function signature
+⋅⋅* And third, the App components returns code the resembles HTML
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> Variables defined in the function's body will be re-defined each time functions runs, which shouldn't be something new if you are familiar with Javascript and its functions.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+import * as React from 'react';
+function App() {
+  const title = 'React';
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+); }
+export default App;
+```
 
-### `npm test`
+### React JSX
+> Everything returned from a React component will be displayed in the browser. The output of the App component not only resembles HTML, but it can also be mixed with Javascript. In fact, this output is called JSX (Javacript XML)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+import * as React from 'react';
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+function App(){
+  const title = 'React'
+  return(
+    //app component return code that resemble HTML
+    <div>
+      <h1>Hello {title}</h1>
+    </div>
+  )
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default App;
+```
 
-### `npm run eject`
+> Let's focus on the HTML which differs slightly in JSX. An HTML input field with a label can be defined as follows:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+import * as React from 'react';
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const title = 'React'
+function App(){
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  return(
+    //app component return code that resemble HTML
+    <div>
+      <h1>Hello {title}</h1>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text"/>
+    </div>
+  )
+}
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default App;
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> JSX replaces a handful of internal HTML attributes casued by internal implementation details of React itself. However, you can find all the [supported HTML attribues](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes)
 
-### Code Splitting
+```
+import * as React from 'react';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const welcome = {
+  greetings:'Hey',
+  title: 'React'
+}
+function App(){
 
-### Analyzing the Bundle Size
+  return(
+    //app component return code that resemble HTML
+    <div>
+      <h1>{welcome.greetings} {welcome.title}</h1>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text"/>
+    </div>
+  )
+}
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+export default App;
+```
 
-### Advanced Configuration
+> Essentially everything in curly braces in JSX can be used for Javascript. For example, executing a function works this way too:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+import * as React from 'react';
 
-### Deployment
+function getTitle(title){
+  return title;
+}
+function App(){
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  return(
+    //app component return code that resemble HTML
+    <div>
+      <h1> Hello {getTitle('React')}</h1>
 
-### `npm run build` fails to minify
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text"/>
+    </div>
+  )
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default App;
+```
 
+> JSX was initially invented for React, but it became useful for other modern libraries and frameworks after it gained popularity. It's one of my favorite thing about React. Without any extra templating syntax (except for the curly braces), we are now able to use Javascript in HTML. 
+
+## Summary
