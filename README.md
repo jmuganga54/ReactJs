@@ -282,7 +282,169 @@ function App(){
 > Not recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state.
 > Keys must only be unique among siblings.
 
+### Meet another React Component
+> Components are the foundation of every React application. So far we've only been using the App component.This will not end well, because components should scale with your application's size.
+>So instead of making one component larger and more complex, we'll split one component into multiple components eventually.
+> We'll start with a new List component which extracts functionalities from the App component.
 
+```
+import * as React from 'react';
+
+//defining the array as a variable
+const list = [
+  {
+    title: 'React',
+    url: 'https://react.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author:'Dan Abramov, Andrew Clark',
+    num_comments: 3,
+    points: 5,
+    objectID: 0
+  }
+
+]
+
+function App(){
+  return (
+    <div>
+      <h1> Meet another React Component</h1>
+      <hr></hr>
+    </div>
+   
+  )
+}
+
+function List(){
+  return (
+    <ul>
+      {
+        list.map(function (item){
+          return (
+            <li key={item.objectID}>
+              <span><a href={item.url}>{item.title}</a></span>
+              <span>{item.author}</span>
+              <span>{item.num_comments}</span>
+              <span>{item.points}</span>
+            </li>
+
+          );
+        })
+      }
+    </ul>
+  );
+}
+
+export default App;
+```
+
+> Then the new List component can be used in the App component where we have been using the inlined functionality previously:
+
+```
+...
+function App(){
+  return (
+    <div>
+      <h1> Meet another React Component | Hacker Stories</h1>
+      <hr></hr>
+
+      <List />
+
+
+    </div>
+   
+  )
+}
+...
+```
+
+> With this example in mind, we can see how components encapsulate meaningful tasks while contributing to the greater good of a larger React application. Extracting a component is a task that you will perform very often as a React developer because it's always the case that a component will grow in size and complexity. Let's do this extraction of a component one more time for a so-called Search component.
+
+```
+import * as React from 'react';
+
+//defining the array as a variable
+const list = [
+  {
+    title: 'React',
+    url: 'https://react.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author:'Dan Abramov, Andrew Clark',
+    num_comments: 3,
+    points: 5,
+    objectID: 0
+  }
+
+]
+
+function App(){
+  return (
+    <div>
+      <h1> Meet another React Component | Hacker Stories</h1>
+      <Search />
+      <hr></hr>
+
+      <List />
+
+
+    </div>
+   
+  )
+}
+
+function List(){
+  return (
+    <ul>
+      {
+        list.map(function (item){
+          return (
+            <li key={item.objectID}>
+              <span><a href={item.url}>{item.title}</a></span>
+              <span>{item.author}</span>
+              <span>{item.num_comments}</span>
+              <span>{item.points}</span>
+            </li>
+
+          );
+        })
+      }
+    </ul>
+  );
+}
+
+function Search(){
+  return(
+    <div>
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text" />
+
+    </div>
+    
+  )
+}
+export default App;
+```
+> Finally, we have three components in our application: App, List and Search. Generally speaking, a React application consists of may hierachical components; which we can put into the following categories:
+![meet other components](./src//imgs/components.png)
+
+> React applications have `components hierachies` (also called component trees)
+> There is usually one uppermost entry point component (e.g App) that spans a tree of components below it.
+> App` is a parent component of 'List and Search`, which they are `child component`, and `sibling components` to each other.
+> Components that don't render any other components are called `leaf components` (e.g List/Search) components.
+> All components can have zero, one or many child components.
 
 
 
