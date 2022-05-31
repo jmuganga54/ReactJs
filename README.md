@@ -133,4 +133,157 @@ export default App;
 
 > JSX was initially invented for React, but it became useful for other modern libraries and frameworks after it gained popularity. It's one of my favorite thing about React. Without any extra templating syntax (except for the curly braces), we are now able to use Javascript in HTML. 
 
+### Lists in React
+> Render a list of item and applying that knowledge to fetched data from a remote API
+
+```
+import * as React from 'react';
+
+//defining the array as a variable
+const list = [
+  {
+    title: 'React',
+    url: 'https://react.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author:'Dan Abramov, Andrew Clark',
+    num_comments: 3,
+    points: 5,
+    objectID: 0
+  }
+
+]
+
+function App(){
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text"/>
+
+      <hr/>
+
+      {/*rendering list*/}
+
+      <ul>
+        {list.map((item)=>{
+          return <li key={item.objectID}>{item.title}</li>
+        })}
+
+      </ul>
+      {/*and by the way: that's how you do coments in JSX*/}
+    </div>
+  )
+}
+
+export default App;
+
+```
+> By assigning a key attribute to each list items element, React can identify items if the list changes (eg re-ordering). The `key` isn't necessary yet in our current situation, however, it's a best practice to use it from the start. 
+
+> We avoid using the index of item in the array to make sure the key attributes is a stable identifier. If the list changes it's order, for example, React will not be able to identify the item properly when using the array's index.
+
+> Using the index as identifier
+
+```
+....
+
+const list = [
+  {
+    title: 'React',
+    url: 'https://react.org/',
+    author: 'Jordan Walke',
+    num_comments: 3,
+    points: 4,
+    objectID: 0
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author:'Dan Abramov, Andrew Clark',
+    num_comments: 3,
+    points: 5,
+    objectID: 0
+  }
+
+]
+
+function App(){
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text"/>
+
+      <hr/>
+
+      {/*rendering list*/}
+
+      <ul>
+       {list.map((item,index)=>{
+         return <li key={index}>{item.title}</li>
+       })}
+
+      </ul>
+      {/*and by the way: that's how you do coments in JSX*/}
+
+    </div>
+  )
+}
+```
+> Experimenting with displaying more of the items's properties.
+
+```
+function App(){
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text"/>
+
+      <hr/>
+
+      {/*rendering list*/}
+
+      <ul>
+        {
+          list.map((item)=>{
+            return (
+              <li key={item.objectID}>
+                <span>
+                  <a href={item.url}>{item.title}</a>
+                </span>
+                <span>{item.author}</span>
+                <span>{item.num_comments}</span>
+                <span>{item.points}</span>
+              </li>
+              
+            )
+          })
+        }
+      </ul>
+      {/*and by the way: that's how you do comments in JSX*/}
+    </div>
+  )
+}
+```
+> `Lists and Keys` keys help react identiy which items have changed, are added, or are removed. Keys should be give to the elements inside the array to give the elements a stable identity;
+> The best way to pick a key is to use a string that uniquely identifies a list item among its siblings. Most often you would use IDs from your data as keys
+> When you don't have stable IDs for rendered items, you may use the item index as a key as last resort
+> Not recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state.
+> Keys must only be unique among siblings.
+
+
+
+
+
 ## Summary
