@@ -446,6 +446,81 @@ export default App;
 > Components that don't render any other components are called `leaf components` (e.g List/Search) components.
 > All components can have zero, one or many child components.
 
+### React Component Instantiation
+> Next, I'll be explaing Javascript classes, to help clarify React components.
+> Classes are most often used in object-oriented programming languages. Javascript, always flexible in its programming paradigms, allows functional programming and object-oriented programming to co-exist side-by-side.
+> To recap Javascript classes for object-oriented programming,consider the following Developer class:
+
+```
+class Developer{
+  constructor(firstName, lastName){
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  getName(){
+    return this.firstName + ' ' + this.lastName;
+  }
+  
+}
+
+```
+
+> Each class has a constructor that takes argument and assigns them to the class instance.
+> Defining the Developer class is just one part; instantiating it is the other.
+> If a Javascript class definition exists, one can create `multiple instances of it`.
+
+```
+//class definition
+class Developer{ ... }
+
+//class instantiation
+const robin = new Developer('Joseph', 'Muganga')
+
+console.log('robin.getName());
+//"Joseph Muganga"
+
+//another class instantiation
+const mungi = new Developer('Mungi','Buhkay')
+
+console.log(mungi.getName())
+//"Mungi Buhkay"
+```
+
+> The concept of class definition and instantiation is similar to a React component, which also has only one component definition, but can have multiple component instances:
+
+```
+//definition of App component
+function App(){
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+      <Search />
+
+      <hr />
+
+      {/* creating an instance of List component */}
+      <List />
+      {/*creating another instance of List component*/}
+      <List />
+
+    </div>
+  )
+}
+
+//defintion of List component
+function List() { ... }
+
+```
+
+> Once we've defined a component, we can use it as an HTML element anywhere in our JSX.
+> The element produces a component instance of your component, or in other words, the component get instantiated.
+> However, technically a `Javascript class and React component` are not the same, just their usage makes it convenient to demonstrate their similarities.
+
+#### React Components, Elements and Instances
+
+
 
 
 ## Summary
