@@ -440,14 +440,14 @@ export default App;
 > Finally, we have three components in our application: App, List and Search. Generally speaking, a React application consists of may hierachical components; which we can put into the following categories:
 ![meet other components](./src//imgs/components.png)
 
-> React applications have `components hierachies` (also called component trees)
+> React applications have `components hierarchies` (also called component trees)
 > There is usually one uppermost entry point component (e.g App) that spans a tree of components below it.
 > App` is a parent component of 'List and Search`, which they are `child component`, and `sibling components` to each other.
 > Components that don't render any other components are called `leaf components` (e.g List/Search) components.
 > All components can have zero, one or many child components.
 
 ### React Component Instantiation
-> Next, I'll be explaing Javascript classes, to help clarify React components.
+> Next, I'll be explain Javascript classes, to help clarify React components.
 > Classes are most often used in object-oriented programming languages. Javascript, always flexible in its programming paradigms, allows functional programming and object-oriented programming to co-exist side-by-side.
 > To recap Javascript classes for object-oriented programming,consider the following Developer class:
 
@@ -509,7 +509,7 @@ function App(){
   )
 }
 
-//defintion of List component
+//definition of List component
 function List() { ... }
 
 ```
@@ -519,6 +519,85 @@ function List() { ... }
 > However, technically a `Javascript class and React component` are not the same, just their usage makes it convenient to demonstrate their similarities.
 
 #### React Components, Elements and Instances
+
+### React DOM
+> Now that we've learned about component definitions and their instantiation, we can move to the App component's instantiation. It has been in our application from the start, in the src/index.js file.
+
+```
+src/index.js
+...
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+```
+> Next to React which is imported from `react`, there is another imported library called `react-dom`, in which a `ReactDOM.render()` function uses an HTML node to replace it with JSX.
+>Essentially that's everything needed to integrate React into any application which uses HTML. In more detail, ReactDOM.render() expects two arguments, the first  is to render the JSX. It creates an instance of your App component, though it can also pass simple JSX without any component instantiation:
+
+#### [Rendering Elements](https://reactjs.org/docs/rendering-elements.html)
+> Elements are the smallest building blocks of React app.
+> An element describes what you want to see on the screen:
+
+```
+const element = <h1>Hello, world</h1>
+```
+
+> Elements are what components are 'made of".
+
+##### Rendering an Element into the DOM
+
+Let's say there is a <div> somewhere in your HTML file:
+
+```
+<div id="root"></div>
+```
+> We call this a "root" DOM node because everything inside it will be manged by React DOM.
+> Applications build with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
+> To render a React element, first pass the DOM element to React.DOM.createRoot(), then pass the React element to root.render()
+
+```
+const root = RectDOM.createRoot(document.getElementById('root'));
+const element = <h1>Hello, world</h1>
+root.render(element)
+```
+
+##### Updating the Render Element
+> React elements are immutable. Once you create an element, you can't change it's children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.
+> With our knowledge so far, the only way to update the UI is to create a new element, and pass it to root.render()
+
+```
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+function tick(){
+  const element = (
+    <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {new Date().toLocaleTimeString()}</h2>
+    </div>
+  );
+  root.render(element)
+}
+
+setInterval(tick,1000)
+```
+> it calls root.render() every second from a setInterval() callback
+
+##### React Only Updates What's Necessary
+>React DOM compares the elements and its children to the previous one, and only applies the DOM updates necessary to bring hte DOM to the desired state.
 
 
 
