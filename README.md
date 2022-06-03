@@ -597,9 +597,151 @@ setInterval(tick,1000)
 > it calls root.render() every second from a setInterval() callback
 
 ##### React Only Updates What's Necessary
->React DOM compares the elements and its children to the previous one, and only applies the DOM updates necessary to bring hte DOM to the desired state.
+> React DOM compares the elements and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.
 
+### React Component Definition (Advanced)
+> Javascript has multiple ways to declare functions. So far, we have used the function statement, through arrow function can be used more concisely:
 
+```
+//function declaration
+function(){...}
 
+//arrow function declaration
+const () => {...}
+```
+
+> You can remove the parentheses in an arrow function expression if it has only one argument, but multiple arguments require parentheses:
+
+```
+//allowed
+const item => {}
+
+//allowed (recommended)
+const (item) => {...}
+
+//not allowed
+const ite,index => {...}
+
+//allowed (recommended)
+const (item,index) => {...}
+```
+> Defining React Function components with arrow functions makes them more concise:
+
+```
+src/App.js
+...
+
+const App = () =>{
+  return (
+    <div>
+
+    </div>
+  )
+}
+
+const Search = () =>{
+  return (
+    <div>
+        <label htmlFor="search">Search: </label>
+        <input id="search" type="text">
+    </div>
+  );
+  }
+
+  const List = () =>{
+    return (
+      ...
+      </ul>
+    )
+  }
+```
+
+> This also holds true for other functions, like the one we used in our Javascript array's map method
+
+```
+src/App.js
+...
+const List = ()=>{
+  return (
+    <ul>
+      {list.map(item)=>{
+        return (
+          <li key={item.objectID}>
+            <span>
+                <a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+
+          </li>
+        )
+      }}
+    </ul>
+  )
+}
+
+```
+> I an arrow function's only purpose is to return a value and it doesn't have any business login in between, you can remove the block body (curly braces) of the function. In a concise body, an implicit return statement is attached, so you can remove the return statment:
+
+```
+//with block body
+const countPlusOne = (count) =>{
+  //perform any task in between
+  return count + 1
+};
+
+//with concise body
+const countPlusOne = (count) => count + 1
+
+//with concise body as one line
+cont countPlusOne = (count) => count + 1;
+```
+
+> This can be done for the App, List and Search components as well, because they only return JSX and don't perform any task in between. Again it also applies to the arrow function that's used in the map function:
+
+```
+src/App.js
+...
+const App = () =>{
+  <div>
+  ...
+  </div>
+}
+const Search = () =>{
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text">
+  </div>
+}
+const List = () =>{
+  <ul>
+  {list.map((item)=>(
+    <li key={item.objectID}>
+        <span>
+            <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.author}</span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+    </li>
+  ))}
+  </ul>
+}
+
+```
+
+> Our JSX is more concise now, as it omits the function statement, the curly braces, and the return statement.However, remember this is an optional step, and that it's acceptable to use normal function instead of arrow functions and block bodies with curly braces for arrow function over implicit returns. Sometimes block bodies will be necessary to introduce more business logic between function and return statement:
+
+```
+const App = () =>{
+  //perform any task in between
+  return (
+    <div>
+    ...
+    </div>
+  )
+}
+```
 
 ## Summary
