@@ -15,12 +15,13 @@
 
 > With the rise of React, the concept of components become popular. Every component defines it's look and feel with HTML, CSS and Javascript. Once a component is defined, it can be use in hierarchy of components for creating an entire application.Even though React has a strong focus on components as a library, the surrounding ecosystem makes it a flexible framework. React has a slim API, a stable yet thriving ecosystem.
 
->[how we moved from websites to web applications](https://www.robinwieruch.de/web-applications/)
->[how to learn a framework](https://www.robinwieruch.de/how-to-learn-framework/)
->[How to learn React.js](https://www.robinwieruch.de/learn-react-js/)
->[Javascript fundamentals before learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/)
->[API's](https://www.robinwieruch.de/what-is-an-api-javascript/)
->[How to Connect to an API with Javascript](https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/)
+> Read More
+- [how we moved from websites to web applications](https://www.robinwieruch.de/web-applications/)
+- [how to learn a framework](https://www.robinwieruch.de/how-to-learn-framework/)
+- [How to learn React.js](https://www.robinwieruch.de/learn-react-js/)
+- [Javascript fundamentals before learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/)
+- [API's](https://www.robinwieruch.de/what-is-an-api-javascript/)
+- [How to Connect to an API with Javascript](https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/)
 
 ## Keywords && Notes
 ### Node and NPM
@@ -94,8 +95,6 @@ npm run build
 - [supported Javascript featurest in create-react-app](https://create-react-app.dev/docs/supported-browsers-features/)
 - [the folder structure in create-react-app](https://create-react-app.dev/docs/folder-structure/)
 - [scripts in create-react-app](https://create-react-app.dev/docs/available-scripts/)
-
-
 
 
 ### Meet the React Components
