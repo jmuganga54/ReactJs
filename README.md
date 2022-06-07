@@ -1,8 +1,106 @@
 ## Topic
+### Hello React
+> Single page application (SPA) have become increasingly popular with first-generation SPA frameworks like Angular(by Google), Ember,knockout and Backbone.
+
+> React,yet another solution for SPAs, was released by Facebook later in 2013. All of them are used to create web application in Javascript.
+
+>For a moment, let's go back in time before SPAs existed: In the past, websites and web application were rendered from the server. A user visits URL in a browser and requests one HTML file and all its associated HTML, CSS, and Javascript files from a web server.After some network delay, the user see the rendered HTML in browser(client) and start to interact with it.
+> Every additional page transition (meaning: visiting another URL) would initiate this chain of event again.In this version from the past, essential everything crucial is done by the server, whereas the client plays a minimal role by just rendering page by page.
+
+> In contract, modern Javascript shifted the focus from the server to the client.The most extreme version of it: A user visits a URL and request one `small HTML file` and `one larger Javascript file`.After some network delay, the user see the rendered HTML by Javascript in the browser and starts to interact with it.
+> Even additional page transition wouldn't request more files from the web server, but would use the initially requested Javascript to render the new page.Also, every additional interaction by the user is handled on the client too.
+
+> React, among the other SPA solutions, makes this possible, Essentially a SPA is one bulk of Javascript, which is neatly organized in folders and files, to create a whole application whereas the SPA framework(e.g React) gives you all the tools to architect it.
+> This Javascript - focused application is delivered once over the network to your browser when a user visit the URL for your web application. From there, React or any other SPA framework, takes over for rendering everything in the browser and for dealing with user interactions.
+
+> With the rise of React, the concept of components become popular. Every component defines it's look and feel with HTML, CSS and Javascript. Once a component is defined, it can be use in hierarchy of components for creating an entire application.Even though React has a strong focus on components as a library, the surrounding ecosystem makes it a flexible framework. React has a slim API, a stable yet thriving ecosystem.
+
+>[how we moved from websites to web applications](https://www.robinwieruch.de/web-applications/)
+>[how to learn a framework](https://www.robinwieruch.de/how-to-learn-framework/)
+>[How to learn React.js](https://www.robinwieruch.de/learn-react-js/)
+>[Javascript fundamentals before learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/)
+>[API's](https://www.robinwieruch.de/what-is-an-api-javascript/)
+>[How to Connect to an API with Javascript](https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/)
 
 ## Keywords && Notes
+### Node and NPM
+> `Node and NPM` both are used to manage libraries (node packages) that you will need along the way.Thse node packages can be libraries or whole framework. We'll install.
+
+> You can verify node and npm versions in the command line using the `node --version` and `npm --version` commands. If you don't receive output in the terminal indicationg which version is installed you need to install node and npm:
+
+```
+Command Line
+....
+node --version
+npm --version
+```
+> [npm crash course](https://www.robinwieruch.de/npm-crash-course/)
+
+### Setting up a React Project
+> In the Road to React, we'll use `create-react-app` to bootstrap your application. It's an opinionated yet zero-configuration starter kit for React introduce by Facebook in 2016.
+> After installing Node and NPM, use the command line to type the following command in a dedicated folder for your projet. We'll refer to this project as `hacker-stories` but you my choose any name you like
+
+```
+Commmand Line
+...
+
+npx create-react-app hacker-stories
+```
+>Navigate into your new folder after the setup has finished:
+```
+cd hacker-stories
+```
+> Now we can open the application in an editor or IDE
+
+> This is a breaknow of the most important folders and files
+- `README.MD` - [Markdown] file usually displays informationabout the content contained in its repositories.
+- `node_modules/:` - This folder contains all node packages that have been installed. Since we use create-react-app, a couple of node modules are alread installed. We'll not touch this folder, since node packages are usually installed and uninstalled with npm via the command line
+- `package.json` - This file shows you a list of node package dependencies and other porject configuration
+- `package-lock.json`: This file indicates npm how to break down all node package versions. We'll not touch this file.
+- `gitignore` - This file displays all files and folders that shouldn'nt be added to your git repository when using git, asch files and foldes should be located only in your local project. The `node-module/` folder is one example.It is enough to share the `package.json` file with others, so they can install dependencies on their end with `npm install` without your entire dependency folder.
+- `public/` - This folder holds development files, such as `public/index.html`.the `index file` is displayed on `localhost:3000` when the app is in development or on a domain that is hosted elsewhere. The default setup hands relating this `index.html` with all hte Javascript from `src/`.
+
+> In the beginnning, everything you need is located in the `src/` folder. The main focus lies on the `src/App.js` file which is used to implement React components. It will be used to implement your application, but later you might want to split your componenents into multiple files,where each file maintains one or more components on its own. We will arrive at this point eventually.
+
+> Additionally, you will find a `src/App.test.js` for your test, and a `src/index.js` as an entry point to the React World. There is also a `src/index.css` and a `src/App.css` file to style your overall application and components, which comes with the default style when you open them. You will modifty them later as well.
+
+> After you have learned about the foler and files structure of your React project, let's go through the availabe commands to get it started.All your project-specific commands can be found in your `package.json` under the `scripts` property. 
+```
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+```
+
+> These scripts are executed with the `npm run <script>` command in IDE-intergrated terminal or your standalone command line tool. The `run` can be ommited for the `start` and `test` scripts. The commands are as follows
+
+```
+#Runs the application in http://localhost:5500
+npm start
+
+#Run the tests
+npm test
+
+# Builds the application for production
+npm run build
+```
+
+> Another commands from previous `npm scripts` called `eject`, essentiall this command is only there to make all the tooling and configuration from `create-react-app` accessible if you are not satisfied with the choices or if you want to change something.
+
+> Read More
+- [create-app documentation](https://github.com/facebook/create-react-app) and [getting started guide](https://create-react-app.dev/docs/getting-started/)
+- [supported Javascript featurest in create-react-app](https://create-react-app.dev/docs/supported-browsers-features/)
+- [the folder structure in create-react-app](https://create-react-app.dev/docs/folder-structure/)
+- [scripts in create-react-app](https://create-react-app.dev/docs/available-scripts/)
+
+
+
+
 ### Meet the React Components
 > Every React application is built on the foundation of React Component. First component which is located in the `src/App.js` file
+
 ```
 import * as React from 'react';
 
