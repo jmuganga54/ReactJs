@@ -53,7 +53,7 @@ cd hacker-stories
 ```
 > Now we can open the application in an editor or IDE
 
-> This is a breaknow of the most important folders and files
+> This is a breakdown of the most important folders and files
 - `README.MD` - [Markdown] file usually displays informationabout the content contained in its repositories.
 - `node_modules/:` - This folder contains all node packages that have been installed. Since we use create-react-app, a couple of node modules are alread installed. We'll not touch this folder, since node packages are usually installed and uninstalled with npm via the command line
 - `package.json` - This file shows you a list of node package dependencies and other porject configuration
@@ -116,9 +116,9 @@ function App() {
 export default App;
 ```
 > Before we dive deeper into each topic
-⋅⋅* First, this React component, called the App Component.
-⋅⋅* Second, the App component doesn't receive any parameters in its function signature
-⋅⋅* And third, the App components returns code the resembles HTML
+- First, this React component, called the App Component.
+- Second, the App component doesn't receive any parameters in its function signature
+- And third, the App components returns code the resembles HTML
 
 > Variables defined in the function's body will be re-defined each time functions runs, which shouldn't be something new if you are familiar with Javascript and its functions.
 
