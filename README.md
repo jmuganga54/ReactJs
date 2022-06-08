@@ -118,7 +118,7 @@ export default App;
 > Before we dive deeper into each topic
 - First, this React component, called the App Component.
 - Second, the App component doesn't receive any parameters in its function signature
-- And third, the App components returns code the resembles HTML
+- And third, the App components returns code that resembles HTML
 
 > Variables defined in the function's body will be re-defined each time functions runs, which shouldn't be something new if you are familiar with Javascript and its functions.
 
@@ -840,5 +840,8 @@ const App = () =>{
   )
 }
 ```
+
+> Read More
+- [Javascript arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ## Summary
