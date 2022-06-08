@@ -1,7 +1,10 @@
 import * as React from 'react';
 
-//defining the array as a variable
-const list = [
+
+
+const App = ()=>{
+  //defining the array as a variable
+  const stories = [
   {
     title: 'React',
     url: 'https://react.org/',
@@ -20,8 +23,6 @@ const list = [
   }
 
 ]
-
-function App(){
   return (
     <div>
       <h1> Meet another React Component | Hacker Stories</h1>
@@ -30,7 +31,7 @@ function App(){
       <hr/>
 
       
-      <List />
+      <List list={stories}/>
 
 
 
@@ -39,25 +40,23 @@ function App(){
   )
 }
 
-const List = ()=>{
-  return (
+const List = (props)=>(
     <ul>
-      {
-        list.map(function (item){
-          return (
-            <li key={item.objectID}>
-              <span><a href={item.url}>{item.title}</a></span>
-              <span>{item.author}</span>
-              <span>{item.num_comments}</span>
-              <span>{item.points}</span>
-            </li>
-
-          );
-        })
-      }
+      {props.list.map((item)=>(
+          <Item key={item.objectID} item={item} />
+        ))}
     </ul>
-  );
-}
+);
+
+const Item = (props)=>(
+  <li>
+      <span><a href={props.item.url}>{props.item.title}</a></span>
+      <span>{props.item.author}</span>
+      <span>{props.item.num_comments}</span>
+      <span>{props.item.points}</span>
+  </li>
+
+)
 
 const Search = ()=>{
   const handleChange = (event)=>{
@@ -71,7 +70,7 @@ const Search = ()=>{
     </div>
     
   )
-}
+  };
 
 
 
