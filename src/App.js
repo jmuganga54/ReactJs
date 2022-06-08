@@ -26,9 +26,12 @@ function App(){
     <div>
       <h1> Meet another React Component | Hacker Stories</h1>
       <Search />
-      <hr></hr>
 
+      <hr/>
+
+      
       <List />
+
 
 
     </div>
@@ -36,7 +39,7 @@ function App(){
   )
 }
 
-function List(){
+const List = ()=>{
   return (
     <ul>
       {
@@ -56,16 +59,21 @@ function List(){
   );
 }
 
-function Search(){
+const Search = ()=>{
+  const handleChange = (event)=>{
+    console.log(event);
+  }
   return(
     <div>
       <label htmlFor="search">Search:</label>
-      <input id="search" type="text" />
+      <input id="search" type="text" onChange = {handleChange} />
 
     </div>
     
   )
 }
+
+
 
 
 

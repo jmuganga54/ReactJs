@@ -844,4 +844,66 @@ const App = () =>{
 > Read More
 - [Javascript arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
+### Handler Function in JSX
+> In HTML outise of JSX, input fields have an [onchange handler](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onchange). We're going to discover how to use onchange handlers with a React component's JSX.
+First, refactor the Search component from a concise body to a block body so we can add implementation details:
+
+```
+src/App.js
+...
+cons Search = ()=>{
+  //do something in between
+  return(
+    <div>
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text" />
+
+    </div>
+    
+  )
+}
+```
+> Next, define a function - which can be a normal or arrow function - for the change event of the input field. In React, this function is called an `(event) handler`. 
+Then the function can be passed to the `onchange` attribute (JSX named attribue) of the HTML input field:
+```
+src/App.js
+...
+cons Search = ()=>{
+  const handleChange = (event)=>{
+    console.log(event);
+  }
+  return(
+    <div>
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text" onChange = {handleChange} />
+
+    </div>
+    
+  )
+}
+```
+> Open the browser's developer tools to see logging occur after you type into the input field. What you see is called `synthetic event` defined by a Javascript object. Through this objec,t we can access the emitted values of the input field.
+
+React syntetic even is essentially a wrapper around the [browser's native event](https://developer.mozilla.org/en-US/docs/Web/Events), with more functions that are useful to prevent native browser behavior (e.g refreshing a page after the user clicks form's submit button.) Sometimes you will use hte even, sometimes you won't need it.
+
+```
+//don't do this
+<input
+  id="search"
+  type="text"
+  onChange ={handleChange()}
+>
+//do this instead
+<input
+  id="search"
+  type="text"
+  onChange ={handleChange}
+>
+```
+> HTML and Javascript work well together in JSX.
+Javascript in HTML can display Javascript variables (e.g Javascript `<span>{title}</span>`), can pass Javascript primitive to HTML attributes(e.g url Javascript string) to `<a href={url}>` HTML element), and can pass functions to an HTML elements attributes for handling user interactions.
+
+> Read More
+- [React's event handler](https://www.robinwieruch.de/react-event-handler/) and [Reacts events]()
+
 ## Summary
